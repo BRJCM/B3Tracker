@@ -1,0 +1,105 @@
+/* Importando fonte */
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+
+body {
+    background-color: #F5F5F5;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #003366;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    font-size: 1.5em;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+header nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+#table-container {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#table-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    color: #003366;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #0066CC;
+    padding-bottom: 10px;
+}
+
+#table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-container th, #table-container td {
+    border: 1px solid #CCCCCC;
+    padding: 12px;
+    text-align: center;
+}
+
+#table-container th {
+    background-color: #0066CC;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#table-container tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+#table-container tr:hover {
+    background-color: #E0E0E0;
+}
+
+footer {
+    background-color: trnasparent;
+    color: #666666;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+    font-style: italic;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

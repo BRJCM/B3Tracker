@@ -1,0 +1,29 @@
+.ticker {
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.ticker-info {
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.ticker-icon-link {
+  position: absolute;
+  left: 5px; /* Ajuste a posição conforme necessário */
+}
+
+.ticker-icon {
+  width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+  height: 20px;
+}
+
+#ticker-info-title,
+#ticker-info-preco {
+  font-size: x-large;
+  font-weight: bold;
+}

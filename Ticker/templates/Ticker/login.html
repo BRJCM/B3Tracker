@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}B3Tracker - Login{% endblock  %}
+
+{% block static_files %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock  %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <div class="form-header">
+
+        <h2>Faça seu Login</h2>
+
+    </div>
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Nome de usuário" name="username" required><br><br>
+        <label for="password">Senha</label>
+        <input type="password" placeholder="senha" name="password" required minlength="6"><br><br>
+        <div class="button-link">
+            <button type="submit">Login</button>
+            <a href="{% url 'cadaster' %}">Fazer Cadastro</a>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock  %}
+
+{% block error_msg %}
+    {% if error %}
+        <div class = "error-msg">
+            <h2>
+                {{error}}
+            </h2>
+        </div>
+    {% endif %}
+{% endblock  %}

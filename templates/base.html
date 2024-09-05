@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock  %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block static_files %}{% endblock  %}
+
+</head>
+
+<body>
+    
+    <header id="principal">
+        <h1 id="title">B3Tracker</h1>
+        <a id="link" href="{% block href %}{% endblock  %}"><h2>{% block link_name %}{% endblock  %}</h2></a>
+        {% block logout_link %}{% endblock  %}
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock  %}
+    </div>
+
+    {% block error_msg %}{% endblock  %}
+
+</body>
+</html>

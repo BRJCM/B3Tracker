@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+.form-container {
+    font-family: 'Poppins',sans-serif;
+    border: 1px solid black;
+    margin-top: 1%;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #BBD6F2;
+}
+
+.form-header {
+    background-color: #0A1045;
+    width: 100%;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.form-header h2 {
+    color: #50FFB1;
+}
+
+form{
+    width:60%
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px; 
+    color: #333;
+    font-weight: bold; 
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+form input:focus{
+    outline: none;
+    border-color: #AA4586;
+}
+
+form button {
+    background-color: #0A1045;
+    width:30%;
+    color: #50FFB1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+}
+
+form button:hover{
+    color: #AA4586;
+}
+
+form a {
+    color: #333;
+    width:50%;
+    text-align: right; 
+    text-decoration: none;
+}
+
+form a:hover {
+    color: #AA4586;
+}
+
+.button-link{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-msg{
+    margin:10px 40%;
+    width:20%;
+    border-radius: 10px;
+    border:1px solid black;
+    background-color: #0A1045;
+    color:#AA4586;
+    justify-content: center;
+    text-align: center;
+}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}B3Tracker - Gerenciamento de Ativos Financeiros{% endblock %}
+{% block static_files %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <header>
+        B3Tracker
+        <nav>
+            <a href="{% url 'home' %}">Início</a>
+            <a href="{% url 'logout' %}">Sair</a>
+        </nav>
+    </header>
+
+    <section id="instructions" class="item">
+        <h2>Monitore e Gerencie Seus Investimentos na B3</h2>
+        <p>Adicione os ativos que deseja acompanhar, informando os valores de referência para compra (limite inferior) e venda (limite superior), além da frequência de monitoramento dos preços.</p>
+        <p>Você será notificado por e-mail sempre que houver uma oportunidade de compra ou venda, de acordo com os parâmetros definidos, garantindo que você não perca momentos importantes no mercado.</p>
+    </section>
+
+    <section id="form-container" class="item">
+        <h2>Adicione ou Edite Ativos Monitorados</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-control">
+                <label for="ticker">Código do Ativo</label>
+                <input type="text" maxlength="6" name="ticker" placeholder="Ex: PETR4" required>
+            </div>
+
+            <div class="form-control">
+                <label for="lower_bound">Limite Inferior (Compra)</label>
+                <input type="text" step="0.01" min="0" name="lower_bound" placeholder="R$ 0,00" class="money" required>    
+            </div>
+
+            <div class="form-control">
+                <label for="interval">Intervalo de Monitoramento (minutos)</label>
+                <input type="number" name="interval" min="1" max="999" placeholder="1 min" required>    
+            </div>
+
+            <div class="form-control">
+                <label for="upper_bound">Limite Superior (Venda)</label>
+                <input type="text" name="upper_bound" placeholder="R$ 0,00" class="money" required>    
+            </div>
+            
+            <div class="button-control">
+                <button type="submit">Salvar</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="ticker-list-container" class="item">
+        <h2>Ativos em Monitoramento</h2>
+
+        <div class="ticker">
+            <div class="ticker-info">Código</div>
+            <div class="ticker-info">Valor Atual</div>
+        </div>
+
+        {% for ticker in tickers %}
+        <div class="ticker">
+            <div class="ticker-info">
+                <a href="{% url 'delete' ticker.ticker %}">
+                    <img src="{% static 'excluir.png' %}" alt="Remover" class="ticker-icon">
+                </a>
+                {{ticker.ticker}}
+            </div>
+            <div class="ticker-info">{{ticker.price}}</div>
+        </div>
+        {% endfor %}
+
+        <div class="button-control">
+            <a href="{% url 'details' %}" class="button">Ver Mais Detalhes</a>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    Última atualização baseada no horário de Brasília.
+</div>
+
+{% endblock %}

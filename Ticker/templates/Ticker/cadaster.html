@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}B3Tracker - Cadastro{% endblock  %}
+
+{% block static_files %}
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="{% static 'email_validator.js' %}"></script>
+{% endblock  %}
+
+{% block content %}
+
+
+<div class="form-container">
+
+    <div class="form-header">
+
+        <h2>Faça seu Cadastro</h2>
+
+    </div>
+
+    <form action="{% url 'cadaster' %}" method="POST" onsubmit="return validateEmail()">
+        {% csrf_token %}
+        <label for="name">Primeiro Nome</label>
+        <input type="text" name="name" placeholder="Nome" required><br>
+        <label for="surname">Sobrenome</label>
+        <input type="text" name="surname" placeholder="Sobrenome" required><br>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Nome de usuário" name="username" required><br>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" placeholder="e-mail" required id="email"><br>
+        <label for="password">Senha</label>
+        <input type="password" placeholder="senha" name="password" required minlength="6"><br><br>
+        <div class="button-link">
+            <button type="submit">Cadastrar</button>
+            <a href="{% url 'login' %}">Ir para Login</a>
+        </div>
+    </form>
+
+</div>
+
+{% endblock  %}
+
+{% block error_msg %}
+    {% if error %}
+        <div class = "error-msg">
+            <h2>
+                {{error}}
+            </h2>
+        </div>
+    {% endif %}
+{% endblock  %}

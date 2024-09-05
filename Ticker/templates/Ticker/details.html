@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}B3Tracker - Detalhes{% endblock  %}
+
+{% block static_files %}
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+{% endblock  %}
+
+{% block href %}{% url "home" %}{% endblock  %}
+{% block link_name %}Página Inicial{% endblock  %}
+
+{% block logout_link %}
+
+<div id="user-greeting">
+    <p>Olá, {{name}}</p>
+    <a href="{% url 'logout' %}" id="logout-link">Logout</a>
+</div>
+
+{% endblock  %}
+
+{% block content %}
+    
+<div id="table-container">
+    <div id="table-title">
+        <h2>LISTA DETALHADA DE ATIVOS</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Ação</th>
+                <th>Preço (R$)</th>
+                <th>Túnel Inferior (R$)</th>
+                <th>Túnel Superior (R$)</th>
+                <th>Último Update*</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticker in tickers %}
+            <tr>
+                <td>{{ticker.ticker}}</td>
+                <td>{{ticker.price}}</td>
+                <td>{{ticker.lower_bound}}</td>
+                <td>{{ticker.upper_bound}}</td>
+                <td>{{ticker.last_update}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<p>* Último update com base no horário de Brasília.</p>
+{% endblock  %}

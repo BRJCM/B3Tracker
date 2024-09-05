@@ -17,11 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from ativos import views as ativos_views
 #from django.http import HttpResponseRedirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('ativos.urls')),
-    #path('', lambda request: HttpResponseRedirect('/ativos/')),  # Redireciona a raiz para /ativos/
+    path('', include('Ticker.urls')),
+    
 ]
+    #path('register/', Ticker.register, name='register'),
+    #path('Ticker/', include('Ticker.urls')),
+    #path('Ticker/adicionar/', Ticker.adiciona_Ticker, name='adiciona_ticker'),
+    #path('Ticker/<int:ativo_id>/cotacoes/', Ticker.listar_cotacoes, name='listar_cotacoes'),
